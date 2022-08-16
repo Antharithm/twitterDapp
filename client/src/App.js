@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Sidebar from './components/Sidebar';
+import Rightbar from './components/Rightbar';
 import './App.css';
 
 function App() {
@@ -15,12 +16,14 @@ function App() {
         </div>
         <div className='mainWindow'>
           <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/' element={<Profile />} />
-          <Route path='/' element={<Settings />} />
+            <Route path='/' element={<Home />} />
+            <Route path='/' element={<Profile />} />
+            <Route path='/' element={<Settings />} />
           </Routes>
         </div>
-        <div className='rightbar'>Rightbar</div>
+        <div className='rightbar'>
+          < Rightbar />
+        </div>
       </div>
     </>
   );

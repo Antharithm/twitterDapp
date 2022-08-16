@@ -1,3 +1,5 @@
+
+
 .siderConent {
     padding-top:  20px;
     padding-right: 90px;
@@ -27,13 +29,13 @@
     font-size: 20px;
     padding: 10px;
     border-radius: 1000px;
-    color: rgb(255, 255, 255) !important;
+    color: white !important;
     text-decoration: none !important;
 }
 
 .menuItems:hover {
     cursor: pointer;
-    background-color: #282828;
+    background-color: #575757;
 }
 
 .profile {
