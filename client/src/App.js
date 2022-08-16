@@ -3,13 +3,16 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
+import Sidebar from './components/Sidebar';
 import './App.css';
 
 function App() {
   return (
     <>
       <div className='page'>
-        <div className='sidebar'>Sidebar</div>
+        <div className='sidebar'>
+          <Sidebar/>
+        </div>
         <div className='mainWindow'>
           <Routes>
           <Route path='/' element={<Home />} />
