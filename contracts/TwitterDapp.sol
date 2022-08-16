@@ -43,7 +43,7 @@ contract TwitterDapp {
         bool isDeleted
     );
 
-    // method to add a Tweet
+    // Method for adding a Tweet
     function addTweet(string memory tweetText, string memory tweetImg) public payable {
         require(msg.value == (1 ether), "Please submit 1 MATIC");
         tweet storage newTweet = Tweets[counter];
