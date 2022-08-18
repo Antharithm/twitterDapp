@@ -17,8 +17,8 @@ function App() {
         <div className='mainWindow'>
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/' element={<Profile />} />
-            <Route path='/' element={<Settings />} />
+            <Route path='/profile' element={<Profile />} />
+            <Route path='/settings' element={<Settings />} />
           </Routes>
         </div>
         <div className='rightbar'>
