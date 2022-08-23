@@ -2,7 +2,7 @@ import React, {useState, useRef} from 'react';
 import "./Home.css";
 import { Avatar, Loading, useNotification } from '@web3uikit/core';
 import {Image, Twitter } from '@web3uikit/icons';
-import { defaultImgs } from "../defaultImgs";
+// import { defaultImgs } from "../defaultImgs";
 import TweetInFeed from '../components/TweetInFeed';
 import { ethers } from 'ethers';
 import Web3Modal from 'web3modal';
