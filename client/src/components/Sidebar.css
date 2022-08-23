@@ -1,7 +1,7 @@
 
 
-.siderConent {
-    padding-top:  20px;
+.siderContent {
+    padding-top: 20px;
     padding-right: 90px;
     justify-content: space-between;
     display: flex;
@@ -19,6 +19,7 @@
     text-decoration: none !important;
 }
 
+
 .menuItems {
     display: flex;
     justify-content: start;
@@ -33,9 +34,10 @@
     text-decoration: none !important;
 }
 
-.menuItems:hover {
+
+.menuItems:hover{
     cursor: pointer;
-    background-color: #575757;
+    background-color: #282828;
 }
 
 .profile {

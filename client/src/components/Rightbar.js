@@ -1,30 +1,37 @@
 import React from 'react';
 import './Rightbar.css';
-import twitter from '../images/twitterLogo.png';
-import solidity from '../images/solidityLogo.png';
-import react from '../images/reactLogo.png';
+import hardhat from '../images/hardhat.jpg';
+import solidity from '../images/solidity.jpg';
+import metamask from '../images/metamask.jpg';
+import react from '../images/react.png';
 import { Input } from '@web3uikit/core';
 import { Search } from '@web3uikit/icons';
 
-const Rightbar = () => {
+
+const Rightbar = () =>{
     const trends = [
         {
-            img:twitter,
-            text: "Decentralized Twitter",
+            img:hardhat,
+            text: "Learn how to use hardhat dev tool",
             link: "#",
         },
         {
             img:solidity,
-            text: "Master smart contract development!",
+            text: "Master smart contract development",
             link: "#",
         },
         {
             img:react,
-            text: "Master React.js",
+            text: "Master React js in 2022",
+            link: "#",
+        },
+        {
+            img:metamask,
+            text: "Become a web3 developer",
             link: "#",
         },
     ];
-    
+
     return (
         <>
         <div className='rightbarContent'>
@@ -35,9 +42,10 @@ const Rightbar = () => {
                 trends.map((e)=>{
                     return (
                         <>
-                        <div className='trend' onClick={()=>window.open(e.link)}></div>
-                            <img src={e.img} className='trendImg'></img>
-                            <div className='trendText'>{e.text}</div>
+                          <div className='trend' onClick={()=>window.open(e.link)}>
+                              <img src={e.img} className='trendImg'></img>
+                              <div className='trendText'>{e.text}</div>
+                          </div>
                         </>
                     );
                 })
@@ -46,6 +54,6 @@ const Rightbar = () => {
         </div>
         </>
     );
-};
+}
 
 export default Rightbar;

@@ -1,12 +1,12 @@
-import React,{useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
-import "./Settings.css";
-import { Input,Upload,Loading,useNotification } from '@web3uikit/core';
-import { ethers } from 'ethers';
+import React,{useState,useEffect} from "react";
+import "./Settings.css"; 
+import { Input,Upload,Loading,useNotification } from "@web3uikit/core";
+import { ethers } from "ethers";
 import Web3Modal from 'web3modal';
-import { TwitterContractAddress, Web3StorageApi } from '../config';
+import { TwitterContractAddress,Web3StorageApi } from "../config";
 import TwitterAbi from '../abi/TwitterDapp.json';
 import { Web3Storage } from 'web3.storage';
+
 
 const Settings = () =>{
 
@@ -51,12 +51,12 @@ const Settings = () =>{
     async function updateProfile(){
         setLoading(true);
         if(profileFile != null){
-            let newProfileUploadedUrl = await storeFile([profileFile]);
+            let  newProfileUploadedUrl = await storeFile([profileFile]);
             profileUploadedUrl = newProfileUploadedUrl;
         }
 
         if(bannerFile != null){
-            let newBannerUploadedUrl = await storeFile([bannerFile]);
+            let  newBannerUploadedUrl = await storeFile([bannerFile]);
             bannerUploadedUrl = newBannerUploadedUrl;
         }
 

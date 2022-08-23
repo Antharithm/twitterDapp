@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import { Route, Routes } from 'react-router-dom';
+import React,{useState,useEffect} from 'react';
+import { Route,Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
@@ -8,12 +8,11 @@ import Rightbar from './components/Rightbar';
 import './App.css';
 import { Button,useNotification,Loading } from '@web3uikit/core';
 import { Twitter,Metamask } from '@web3uikit/icons'; 
-import { ethers, utils } from 'ethers';
+import { ethers,utils } from 'ethers';
 import Web3Modal from 'web3modal';
 import { TwitterContractAddress } from './config';
 import TwitterAbi from './abi/TwitterDapp.json';
 var toonavatar = require('cartoon-avatar');
-
 
 function App() {
   const [isAuthenticated,setIsAuthenticated] = useState(false);
@@ -167,32 +166,33 @@ function App() {
   }
 
   return (
-    <>
-      { isAuthenticated? (
-          <div className='page'>
-          <div className='sidebar'>
-            <Sidebar/>
-          </div>
-          <div className='mainWindow'>
-            <Routes>
+     <>
+     { isAuthenticated ? (
+         <div className='page'>
+         <div className='sideBar'>
+           <Sidebar/>
+         </div>
+         <div className='mainWindow'>
+           <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/profile' element={<Profile />} />
               <Route path='/settings' element={<Settings />} />
-            </Routes>
-          </div>
-          <div className='rightbar'>
-            < Rightbar />
-          </div>
-        </div>
+           </Routes>
+         </div>
+         <div className='rightBar'>
+           < Rightbar />
+         </div>
+       </div>
 
-      ): (
-        <div className='loginPage'>
-          <Twitter fill='#ffffff' fontSize={80}/>
-          <Button onClick={null} size="xl" text='Login with Metamask' theme='primary' icon={< Metamask />} />
-        </div>
-      )}
-
-    </>
+     ): (
+       <div className='loginPage'>
+         <Twitter fill='#ffffff' fontSize={80}/>
+         { loading ? <Loading size={50} spinnerColor="green" /> :  <Button onClick={connectWallet} size="xl" text='Login with Metamask' theme='primary' icon={< Metamask />} /> }
+        
+       </div>
+     )}
+     
+     </>
   );
 }
 

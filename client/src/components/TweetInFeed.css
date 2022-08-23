@@ -10,7 +10,7 @@
     cursor: pointer;
 }
 
-.feedTweet:hover {
+.feedTweet:hover{
     background-color: #1c2834;
 }
 
@@ -23,13 +23,13 @@
 }
 
 .interactions {
-    margin-top: 150px;
+    margin-top: 10px;
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 150px;
 }
 
-.interactionNums {
+.interactionNums{
     color: #3f3f3f;
     display: flex;
     justify-content: start;
@@ -40,7 +40,7 @@
 
 .who {
     display: flex;
-    gap: 10px;
+    gap:10px;
     font-weight: 600;
     align-items: center;
 }
@@ -48,7 +48,7 @@
 .accWhen {
     font-size: 15px;
     font-weight: 400;
-    color: grey;
+    color: gray;
 }
 
 .tweetContent {
@@ -60,7 +60,7 @@
 }
 
 .tweetImg {
-    width: 90%;
+    width: 98%;
     border-radius: 10px;
     height: 90%;
 }
@@ -71,5 +71,6 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: white;
+    gap: 20px;
+    color: white;
 }

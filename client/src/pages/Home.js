@@ -1,23 +1,22 @@
-import React, {useState, useRef} from 'react';
-import "./Home.css";
-import { Avatar, Loading, useNotification } from '@web3uikit/core';
+import React,{useState,useRef} from "react";
+import "./Home.css"; 
+import { Avatar,Loading,useNotification } from '@web3uikit/core';
 import {Image, Twitter } from '@web3uikit/icons';
-// import { defaultImgs } from "../defaultImgs";
-import TweetInFeed from '../components/TweetInFeed';
-import { ethers } from 'ethers';
+import TweetInFeed from "../components/TweetInFeed";
+import { ethers } from "ethers";
 import Web3Modal from 'web3modal';
-import { TwitterContractAddress, Web3StorageApi } from '../config';
+import { TwitterContractAddress,Web3StorageApi } from "../config";
 import TwitterAbi from '../abi/TwitterDapp.json';
 import { Web3Storage } from 'web3.storage';
 
-const Home = () => {
+const Home = () =>{
 
     const inputFile = useRef(null);
-    const [selectedImage, setSelectedImage] = useState();
-    const [tweetText, setTweetText] = useState('');
+    const [selectedImage,setSelectedImage] = useState();
+    const [tweetText,setTweetText] = useState('');
     const userImage = JSON.parse(localStorage.getItem('userImage'));
-    const [selectedFile, setSelectedFile] = useState();
-    const [uploading, setUploading] = useState(false);
+    const [selectedFile,setSelectedFile] = useState();
+    const [uploading,setUploading]= useState(false);
     let ipfsUploadedUrl = '';
     const notification = useNotification();
 
@@ -27,24 +26,24 @@ const Home = () => {
         ipfsUploadedUrl = `https://${rootCid}.ipfs.dweb.link/${selectedFile[0].name}`;
     }
 
-    const onImageClick = () => {
+    const onImageClick = () =>{
         inputFile.current.click();
     }
 
-    const changeHandler = (event) => {
+    const changeHandler = (event) =>{
         const imgFile = event.target.files[0];
         setSelectedImage(URL.createObjectURL(imgFile));
         setSelectedFile(event.target.files);
     }
 
-    async function addTweet() {
-        if (tweetText.trim().length < 5) {
+    async function addTweet(){
+        if(tweetText.trim().length < 5){
             notification({
                 type: 'warning',
-                message: 'Minimum 5 characters',
-                title: 'Tweet Feild required',
+                message:'Minimum 5 characters',
+                title: 'Tweet Field required',
                 position: 'topR'
-            })
+            });
             return;
         }
         setUploading(true);
@@ -52,36 +51,36 @@ const Home = () => {
             await storeFile();
         }
         const web3Modal = new Web3Modal();
-        const connection = await Web3Modal.connect();
+        const connection = await web3Modal.connect();
         const provider = new ethers.providers.Web3Provider(connection);
         const signer = provider.getSigner();
-        const contract = new ethers.Contract(TwitterContractAddress, TwitterAbi.abi, signer);
+        const contract = new ethers.Contract(TwitterContractAddress,TwitterAbi.abi,signer);
         const tweetValue = "0.01";
         const price = ethers.utils.parseEther(tweetValue);
-        try {
-            const transaction = await contract.addTweet(tweetText, ipfsUploadedUrl,{value:price});
+        try{
+            const transaction = await contract.addTweet(tweetText,ipfsUploadedUrl,{value:price});
             await transaction.wait();
             notification({
-                type: "Success!",
-                title: "Tweet Added Successfully!",
-                position: "topR"
+                type: 'success',
+                title: 'Tweet Added Successfully',
+                position:'topR'
             });
 
             setSelectedImage(null);
             setTweetText('');
             setSelectedFile(null);
             setUploading(false);
-
-        } catch(error) {
+        }catch(error){
             notification({
-                type: "Error!",
-                title: "Transaction Error!",
+                type: 'error',
+                title: 'Transaction Error',
                 message: error.message,
-                position: "topR"
+                position:'topR'
             });
             setUploading(false);
         }
     }
+
     return (
         <>
          <div className="mainContent">
